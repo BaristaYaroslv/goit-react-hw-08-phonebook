@@ -3,7 +3,7 @@ import useAuth from 'hooks/useAuth';
 
 const RestrictedRoute = ({
   component: Component,
-  redirectTo = '/',
+  redirectTo = '/contacts',
 }) => {
   const { isLoggedIn } = useAuth();
   return isLoggedIn ? <Navigate to={redirectTo} /> : Component;

@@ -18,7 +18,6 @@ const App = () => {
   // const { showFailure } = useNotife();
 
   const { isRefresing } = useAuth();
-  // const { isRefresing, isError, textError } = useAuth();
 
   // useEffect(() => {
   //   if (isError) {
@@ -35,32 +34,34 @@ const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        {/* <Route index element={
-            <PrivateRoute component={<Contacts />} redirectTo="/login" />
-          }
-          /> */}
-          
         <Route
-          path="/contacts"
+          index
           element={
             <PrivateRoute component={<Contacts />} redirectTo="/login" />
           }
         />
 
         <Route
-          path="/login"
+          path="contacts"
+          element={
+            <PrivateRoute component={<Contacts />} redirectTo="/login" />
+          }
+        />
+
+        <Route
+          path="login"
           element={
             <RestrictedRoute component={<Login />} redirectTo="/contacts" />
           }
         />
         <Route
-          path="/register"
+          path="register"
           element={
             <RestrictedRoute component={<Register />} redirectTo="/contacts" />
           }
         />
       </Route>
-      <Route path="*" element={<Navigate to="/"  />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };
