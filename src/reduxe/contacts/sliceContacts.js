@@ -22,7 +22,7 @@ const contactsSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  reducers: {
+  extraReducers: {
     // * Fetch contacts
     [fetchAllContacts.pending]: handlePending,
     [fetchAllContacts.rejected]: handleRejected,

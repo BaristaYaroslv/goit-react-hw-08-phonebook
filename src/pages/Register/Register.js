@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'reduxe/auth/operation';
 import { useNavigate } from 'react-router-dom';
 
+//
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';

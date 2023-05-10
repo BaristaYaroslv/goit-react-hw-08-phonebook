@@ -34,6 +34,9 @@ const Contacts = () => {
       {contacts.length > 0 && (
         <>
           <Typography variant="h4">Contacts</Typography>
+
+          {/* <Filter /> */}
+
           <ListContacts />
         </>
       )}

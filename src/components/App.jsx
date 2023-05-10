@@ -7,7 +7,7 @@ import { refreshUser } from 'reduxe/auth/operation';
 import Spinner from './Spinner/Spinner';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
-// import useNotife from 'hooks/useNotife';
+import useNotife from 'hooks/useNotife';
 
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 const Login = lazy(() => import('pages/Login/Login'));
@@ -15,15 +15,15 @@ const Register = lazy(() => import('pages/Register/Register'));
 
 const App = () => {
   const dispatch = useDispatch();
-  // const { showFailure } = useNotife();
+  const { showFailure } = useNotife();
 
-  const { isRefresing } = useAuth();
+  const { isRefresing, isError, textError } = useAuth();
 
-  // useEffect(() => {
-  //   if (isError) {
-  //     showFailure(textError);
-  //   }
-  // }, [isError, textError, showFailure]);
+  useEffect(() => {
+    if (isError) {
+      showFailure(textError);
+    }
+  }, [isError, textError, showFailure]);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -42,20 +42,20 @@ const App = () => {
         />
 
         <Route
-          path="contacts"
+          path="/contacts"
           element={
             <PrivateRoute component={<Contacts />} redirectTo="/login" />
           }
         />
 
         <Route
-          path="login"
+          path="/login"
           element={
             <RestrictedRoute component={<Login />} redirectTo="/contacts" />
           }
         />
         <Route
-          path="register"
+          path="/register"
           element={
             <RestrictedRoute component={<Register />} redirectTo="/contacts" />
           }
