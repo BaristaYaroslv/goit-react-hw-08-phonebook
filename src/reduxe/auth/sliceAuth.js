@@ -16,7 +16,7 @@ const initialstate = {
 const authSlice = createSlice({
   name: 'auth',
   initialState: initialstate,
-  reducers: {
+  extraReducers: {
     // * register
     [register.fulfilled](state, action) {
       state.isLoggedIn = true;
