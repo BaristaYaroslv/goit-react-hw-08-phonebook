@@ -89,11 +89,12 @@ const Login = () => {
             <Grid item xs></Grid>
             <Grid item>
               <Link
-                component="button"
+                component="a"
                 variant="body2"
                 onClick={() => {
                   navigate('/register');
                 }}
+                href="/register"
               >
                 {"Don't have an account? Sign Up"}
               </Link>

@@ -95,13 +95,14 @@ const Register = () => {
             <Grid item xs></Grid>
             <Grid item>
               <Link
-                component="button"
+                component="a"
                 variant="body2"
                 onClick={() => {
-                  navigate('/login');
+                  navigate('/register');
                 }}
+                href="/register"
               >
-                {'Already have an account? Sign in'}
+                {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
           </Grid>
